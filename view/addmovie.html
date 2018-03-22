@@ -1,0 +1,153 @@
+<script type="text/javascript">
+    $(function(){
+        $(".link-a").children("a").removeClass("activea");
+        $(".link-a").children("a").eq(4).addClass("activea");
+    });
+</script>
+
+<div class="container">
+    <div class="row" style="margin-bottom:20px;">
+        <div class="col-md-6 col-sm-12 col-xs-12 text-center">
+            <div class="col-md-12 hidden-xs hidden-sm" style="height: 200px;">
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12" style="margin-top:20px;">
+                <form enctype="multipart/form-data">
+                    <label for="avatar-upload" style="cursor:pointer;"><img src="./public/images/2017-08-12_230041.png" alt="" class="img-responsive"></label>
+                    <input type="file" name="files" style="display:none;" id="avatar-upload">
+                </form>
+            </div>
+
+
+        </div>
+        <div class="col-md-6 col-sm-12 col-xs-12">
+            <div class="col-md-7" style="padding-top: 45px;">
+                <div class="form-group">
+                    <label for="movie">影片名</label>
+                    <input type="text" class="form-control" id="movie" placeholder="请输入影片名">
+                </div>
+                <div class="form-group">
+                    <label for="role">主演</label>
+                    <input type="text" class="form-control" id="role" placeholder="请输入影片主演">
+                </div>
+                <div class="form-group">
+                    <label for="year">年份</label>
+                    <input type="text" class="form-control" id="year" placeholder="请输入影片年份">
+                </div>
+                <div class="form-group">
+                    <label>分类</label>
+                    <select class="form-control" ng-controller="allType">
+                            <option>请选择分类</option>
+                            <option ng-repeat="item in alltype">{{item.name}}</option>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="year">评分</label>
+                    <input type="text" class="form-control" id="score" placeholder="请输入影片评分">
+                </div>
+                <div class="form-group">
+
+                    <label>是否上映</label>
+                    <div class="radio">
+                        <label>
+                        <input type="radio" ng-model="data.state" value="1" checked>
+                        是</label>
+                        <label>
+                        <input type="radio" ng-model="data.state" value="2">否
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>是否热门</label>
+                    <div class="radio">
+                        <label>
+                                <input type="radio" ng-model="data.hot" value="1" checked>
+                                是
+                            </label>
+                        <label>
+                                <input type="radio" ng-model="data.hot" value="0">
+                                否
+                            </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="year">豆瓣地址</label>
+                    <input type="text" class="form-control" id="doubanurl" placeholder="请输入豆瓣影片地址">
+                </div>
+                <div class="form-group">
+                    <label for="year">高清地址</label>
+                    <input type="text" class="form-control" id="heighturl" placeholder="请输入影片高清地址">
+                </div>
+                <div class="form-group">
+                    <label>简介</label>
+                    <textarea class="form-control" id="words" rows="4" placeholder="请输入影片简介" style=" resize : none;"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary btn-block" id="subbtn">发布影片</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        $("#avatar-upload").change(function(){
+            var formData = new FormData($("form")[0]);//$("form")获取的是一个数组  实例化一个eFormData对象 按照 key value 传递参数
+            //如何获取文件选择框选中的文件
+            var select_file = $(":file")[0].files[0];
+            formData.append('file', select_file);//已经准备好了往后台传递文件
+
+            //异步传输
+            $.ajax({
+                url:'handler/upload.php',
+                type:'post',
+                data: formData,
+                //上传文件必备的几个属性
+                cache:false,
+                processData:false,
+                contentType:false,
+                success:function(data){
+                    $(".img-responsive").attr('src', data);
+                }
+            });
+        });
+
+        $("#subbtn").click(function(){
+            var realpath = $(".img-responsive").attr('src');
+            var moviename = $("#movie").val();
+            var movierole = $("#role").val();
+            var movieyear = $("#year").val();
+            var moviescore = $("#score").val();
+            var doubanurl = $("#doubanurl").val();
+            var heighturl = $("#heighturl").val();
+            var moviewords = $("#words").val();
+
+            $.ajax({
+                url:'handler/insertmovie.php',
+                type:'post',
+                data: {
+                    realpath: realpath,
+                    moviename: moviename,
+                    movierole: movierole,
+                    movieyear: movieyear,
+                    moviescore: moviescore,
+                    doubanurl: doubanurl,
+                    heighturl: heighturl,
+                    moviewords: moviewords
+                },
+                success:function(data){
+                    $(".img-responsive").attr('src', './public/images/2017-08-12_230041.png');
+                    var moviename = $("#movie").val("");
+                    var movierole = $("#role").val("");
+                    var movieyear = $("#year").val("");
+                    var moviescore = $("#score").val("");
+                    var doubanurl = $("#doubanurl").val("");
+                    var heighturl = $("#heighturl").val("");
+                    var moviewords = $("#words").val("");
+                    layer.msg('发布成功！', {icon: 6});
+                }
+            });
+        });
+    })
+    
+</script>

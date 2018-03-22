@@ -1,0 +1,104 @@
+/*.header-menu {
+	display: none;
+}*/
+
+#miniQRCode {
+	cursor: pointer;
+}
+
+#Code-parent {
+	position: relative;
+}
+
+#QRCode {
+	position: absolute;
+	right: 0%;
+	top: -35%;
+	display: none;
+}
+
+#QRCode p {
+	width: 122.5px;
+	text-align: center;
+	color: red;
+}
+
+.movieimg {
+	width: 100%;
+}
+
+.littitle {
+	margin-top: 50px;
+}
+
+//评论
+.pinglun {
+	padding-bottom: 50px;
+}
+.usercomment {
+	border: 1px solid #ddd;
+	box-shadow: 0 0 5px #ccc;
+	margin: 5px 20px;
+}
+
+.user {
+	height: 50px;
+	width: 300px;
+	display: flex;
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+.user p {
+	line-height: 50px;
+	margin-left: 20px;
+}
+
+.user p span {
+	margin-left: 15px;
+	font-size: 10px;
+}
+
+.faceimg {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+}
+
+.comment {
+	border-top: 1px solid #ddd;
+	margin-top: 10px;
+}
+
+.comment p {
+	padding-top: 10px;
+	padding-left: 20px;
+	text-overflow:ellipsis;
+}
+
+.userinput {
+	margin-top: 5px;
+	border: 1px solid #ddd;
+	box-shadow: 0 0 5px #ccc;
+}
+
+.userinput textarea {
+	border: 0;
+	border-radius: 5px;
+	width: 100%;
+	height: 100px;
+	padding: 10px;
+	resize:none;
+	background-color: #fafafa;
+	outline:none;
+}
+
+.userinput a {
+	display: inline-block;
+	padding: 8px 10px;
+	border-radius: 5px;
+	color: #fff;
+	float: right;
+	background-color: #03a9f4;
+	margin: 10px 0 50px;
+}

@@ -1,0 +1,138 @@
+body {
+    font-family: 'Mircrosoft YaHei';
+    background: #fafafa;
+}
+
+.navbar-inverse {
+    background: #374453;
+    border-radius: 0;
+}
+
+.search-box {
+	background: #EFF2F4;
+	height: 120px;
+	margin-top: -20px;
+	border-bottom: 2px solid #ddd;
+}
+
+.search-inner {
+	margin-top: 40px;
+}
+
+.form-control {
+	border: none !important;
+	box-shadow: none !important;
+}
+
+.header-menu {
+	height: 40px;
+	background: #EFF2F4;
+}
+
+.link-a {
+	height: 40px;
+	line-height: 40px;
+}
+
+.link-a a {
+	display: inline-block;
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	position: relative;
+}
+
+.activea {
+	color: #03a9f4 !important;
+}
+
+.activea::before {
+	content: '';
+	width: 59%;
+	height: 3px;
+	background: #03a9f4;
+	position: absolute;
+	left: 21%;
+	bottom: 0;
+}
+
+.word3::before {
+	width: 87% !important;
+	left: 8% !important;
+}
+
+.word4::before {
+	width: 75% !important;
+	left: 13% !important;
+}
+
+.link-a a:hover,
+.link-a a:active,
+.link-a a:focus
+ {
+	text-decoration: none;
+}
+
+/*热门影片*/
+
+.bread {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.hot-title {
+	margin-top: 40px;
+	border-left: 2px solid #03a9f4;
+	padding-left: 10px;
+}
+
+.hot-title-clear {
+	margin-top: 0 !important;
+}
+
+.item-box img {
+	width: 100%;
+
+}
+
+.item-box  a {
+	color: #666;
+	text-decoration: none;
+}
+
+.item-box a:hover,
+.item-box a:focus,
+.item-box a:active {
+	color: #666;
+	text-decoration: none;
+}
+
+footer{
+	border-top: 2px solid #ddd;
+	padding-top: 4px;
+}
+
+
+.btn-lg {
+	font-size: 12px !important;
+}
+
+.btn-primary {
+    background-color: #03a9f4 ;
+    border-color: #03a9f4 ;
+}
+
+.btn-primary:hover {
+	background-color: #098bc5;
+	border-color: #098bc5;
+}
+
+/*load*/
+
+.load_box {
+    z-index: 999;
+    position: fixed;
+    right: 53%;
+    top: 29%;
+    display: none;
+}

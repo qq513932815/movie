@@ -1,0 +1,30 @@
+<div class="container-fluid">
+	<div class="row search-box">
+		<div class="col-md-8 col-md-offset-2 search-inner">
+			<div class="col-md-4 hidden-xs hidden-sm text-center">
+				<img src="public/images/Logo.png">
+			</div>
+			<div class="col-md-8 col-sm-12 col-xs-12">
+				<div class="input-group" ng-controller="sCtrl">
+					<input type="text" class="form-control" placeholder="搜索电影" ng-model="input">
+					<span class="input-group-btn">
+						<a href="#!/search/{{input}}" class="btn btn-primary">
+							<span class="glyphicon glyphicon-search"></span>
+						</a>
+					<span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row header-menu  hidden-xs">
+		<div class="col-md-8 col-md-offset-2 text-center">
+			<div class="link-a">
+				<a href="#!/">热门影片</a>
+				<a href="#!/soonmovie">即将上映</a>
+				<a href="#!/showing">上映中的影片</a>
+				<a href="#!/ranking/0">影片排行榜</a>
+				<a href="#!/addmovie">影片发布</a>
+			</div>
+		</div>
+	</div>
+</div>
